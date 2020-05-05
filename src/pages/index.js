@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "gatsby-link";
 
 import SEO from "root/components/SEO";
 import Header from "root/components/Header";
 import Layout from "root/components/Layout";
+import MapExp from "root/components/MapExp";
 
 const IndexPage = () => (
   <div>
@@ -11,10 +11,9 @@ const IndexPage = () => (
     <Header />
 
     <Layout>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
+      <div style={{ height: "200px" }}>
+        <MapExp />
+      </div>
     </Layout>
   </div>
 );

@@ -1,0 +1,9 @@
+@import "../../styles/all.css";
+
+.map {
+  height: 600px;
+
+  @include Breakpoint-mobileOnly {
+    height: 400px;
+  }
+}

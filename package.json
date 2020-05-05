@@ -1,22 +1,18 @@
 {
-  "name": "gatsby-base-starter",
-  "description": "A opinionated Gatsby Starter with polyfills, css modules and linters",
+  "name": "covid-19-tests-map",
+  "description": "Covid 19 tests map",
   "version": "1.0.0",
   "author": "Aurora Digital",
-  "homepage": "https://github.com/aurora-digital/gatsby-base-starter",
+  "homepage": "https://github.com/aurora-digital/covid-19-tests",
   "keywords": [
-    "gatsby",
-    "starter",
-    "postcss",
-    "modules",
-    "analytics",
-    "linters"
+    "covid-19",
+    "coronavirus"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aurora-digital/gatsby-base-starter"
+    "url": "https://github.com/aurora-digital/covid-19-tests"
   },
   "scripts": {
     "dev": "gatsby develop",
@@ -34,19 +30,22 @@
     "gatsby-plugin-google-analytics": "^2.2.5",
     "gatsby-plugin-postcss": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-react-leaflet": "^2.0.13",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sharp": "^2.5.7",
     "gatsby-plugin-sitemap": "^2.3.6",
     "gatsby-source-filesystem": "^2.2.5",
     "gatsby-transformer-sharp": "^2.4.7",
     "intersection-observer": "^0.10.0",
+    "leaflet": "^1.6.0",
     "postcss-import": "^12.0.1",
     "precss": "^4.0.0",
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-leaflet": "^2.6.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

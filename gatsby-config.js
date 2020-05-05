@@ -3,11 +3,10 @@ const path = require("path");
 module.exports = {
   siteMetadata: {
     siteUrl: "https://example.com",
-    title: "Gatsby base starter",
+    title: "Covid-19 tests Map",
     author: "Aurora Digital",
-    description:
-      "A gatsby starter with ESLint, Prettier, Stylelint, Postcss modules and analytics",
-    keywords: "gatsby, starter, eslint, postcss, analytics",
+    description: "Covid 19 tests map",
+    keywords: "covid-19, coronavirus",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -36,5 +35,11 @@ module.exports = {
       },
     },
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-react-leaflet",
+      options: {
+        linkStyles: true,
+      },
+    },
   ],
 };

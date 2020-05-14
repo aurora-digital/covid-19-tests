@@ -1,0 +1,23 @@
+$font-family-medium: sans-serif;
+$font-family-regular: sans-serif;
+$font-size-h1: 56px;
+$line-height-h1: 64px;
+$font-size-h2: 40px;
+$line-height-h2: 56px;
+$font-size-h3: 28px;
+$line-height-h3: 40px;
+$font-size-body: 20px;
+$line-height-body: 28px;
+$font-size-small-body: 16px;
+$line-height-small-body: 20px;
+
+$font-size-h1-mobile: 28px;
+$line-height-h1-mobile: 40px;
+$font-size-h2-mobile: 20px;
+$line-height-h2-mobile: 28px;
+$font-size-h3-mobile: 16px;
+$line-height-h3-mobile: 20px;
+$font-size-body-mobile: 16px;
+$line-height-body-mobile: 20px;
+$font-size-small-body-mobile: 12px;
+$line-height-small-body-mobile: 16px;

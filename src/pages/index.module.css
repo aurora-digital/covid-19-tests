@@ -1,0 +1,14 @@
+@import "../styles/all.css";
+
+.root {
+  display: flex;
+
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}

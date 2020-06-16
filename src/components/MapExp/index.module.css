@@ -6,3 +6,13 @@
 
   height: 600px;
 }
+
+.popup {
+  display: flex;
+  flex-direction: column;
+
+  .detail {
+    flex-direction: row;
+    margin-top: $spacing-20;
+  }
+}

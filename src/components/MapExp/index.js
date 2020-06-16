@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { Component, useState, useRef, useEffect } from "react";
 import MapGL, { Marker, GeolocateControl } from "react-map-gl";
 import fetch from "node-fetch";
+import axios from "axios";
 
 const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
   c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
@@ -8,7 +9,30 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
 
 const SIZE = 20;
 
-const MapExp = ({ labs }) => {
+const list = [
+  "Rua D. Moisés Alves de Pinho 4900-314 Viana do Castelo, Portugal",
+  "Avenida Dr. Tito Fontes, nº 31 4930-673 Valença, Portugal",
+  "Rua Dr. Félix Alves Pereira, nº 177 4970-456 Arcos de Valdevez, Portugal",
+];
+
+const MapExp = () => {
+  useEffect(async () => {
+    const mapboxApiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${list[2]}.json`;
+
+    try {
+      const response = await axios.get(mapboxApiUrl, {
+        params: {
+          access_token: `${process.env.MAPBOX_TOKEN}`,
+          country: "PT",
+        },
+      });
+
+      return console.log(response.data.features);
+    } catch (error) {
+      return console.log(error);
+    }
+  }, []);
+
   const [viewport, setViewport] = useState({
     latitude: 39.5887387,
     longitude: -8.4964864,
@@ -24,8 +48,6 @@ const MapExp = ({ labs }) => {
     left: 0,
     margin: 10,
   };
-
-  console.log(labs);
 
   if (map.current) {
     console.log(map.current);
@@ -64,25 +86,29 @@ const MapExp = ({ labs }) => {
   );
 };
 
-export async function getStaticProps() {
-  const list = [
-    "Rua D. Moisés Alves de Pinho 4900-314 Viana do Castelo",
-    "Avenida Dr. Tito Fontes, nº 31 4930-673 Valença",
-    "Rua Dr. Félix Alves Pereira, nº 177 4970-456 Arcos de Valdevez",
-  ];
-  const mapboxApiUrl =
-    "https://api.mapbox.com/geocoding/v5/mapbox.places/chester.json?access_token=${process.env.MAPBOX_TOKEN}";
-
-  const res = await fetch(mapboxApiUrl);
-
-  const json = await res;
-  console.log(json);
-
-  return {
-    props: {
-      labs: json,
-    },
-  };
-}
-
 export default MapExp;
+
+/* export async function getStaticProps() {
+  console.log("aki");
+
+  const mapboxApiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/chester.json?access_token=${process.env.MAPBOX_TOKEN}`;
+
+  try {
+    const res = await fetch(mapboxApiUrl);
+    const json = await res;
+
+    console.log(json);
+  } catch (error) {
+    console.log(error);
+  }
+
+  const res = await fetch(mapboxApiUrl, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  }).then((res) => {
+    console.log(res);
+    return res;
+  });
+
+  return res;
+} */

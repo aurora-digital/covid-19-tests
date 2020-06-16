@@ -1,0 +1,23 @@
+@import "../../styles/all.css";
+
+.root {
+  display: flex;
+  padding: $spacing-20 0;
+
+  background-color: $klein-blue;
+
+  svg {
+    margin-top: calc($spacing-8 * -0.6);
+    margin-left: $spacing-20;
+  }
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  margin: 0 auto;
+}

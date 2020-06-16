@@ -1,0 +1,25 @@
+@import "../../styles/all.css";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  padding: $spacing-20 0;
+
+  background-color: $klein-blue;
+
+  text-align: center;
+}
+
+.menu {
+  position: absolute;
+  right: $spacing-32;
+
+  button {
+    background: none;
+    border: none;
+  }
+}

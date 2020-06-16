@@ -4,34 +4,57 @@ import classNames from "classnames";
 
 import styles from "./index.module.css";
 
-const Typography = ({ children, variant, weight, color }) => {
-  const className = classNames(styles[variant], styles[color], styles[weight]);
+function getTextComponent(variant) {
+  switch (variant) {
+    case "body":
+      return "p";
+    case "small-body":
+      return "small";
+    default:
+      return variant;
+  }
+}
 
-  const TextComponent =
-    variant === "body" || variant === "smallBody" ? "p" : variant;
+function Typography({
+  children,
+  variant,
+  fontFamily,
+  color,
+  weight,
+  className,
+}) {
+  const classes = classNames(className, {
+    [styles[variant]]: true,
+    [styles[fontFamily]]: true,
+    [styles[color]]: true,
+    [styles[weight]]: true,
+  });
+  const TextComponent = getTextComponent(variant);
 
-  return <TextComponent className={className}>{children}</TextComponent>;
-};
+  return <TextComponent className={classes}>{children}</TextComponent>;
+}
 
 Typography.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(["h1", "h2", "h3", "body", "smallBody"]),
-  weight: PropTypes.oneOf(["regular", "medium"]),
+  variant: PropTypes.oneOf(["h1", "h2", "h3", "body", "small-body"]),
+  fontFamily: PropTypes.oneOf(["visuelt"]),
   color: PropTypes.oneOf([
-    "blue",
+    "oxford-blue",
     "white",
-    "black",
-    "yellow",
-    "purple",
-    "green",
-    "red",
+    "klein-blue",
+    "baby-blue",
+    "alice-blue",
   ]),
+  weight: PropTypes.oneOf(["regular", "medium", "bold"]),
+  className: PropTypes.string,
 };
 
 Typography.defaultProps = {
-  variant: "body",
+  variant: "small-body",
+  fontFamily: "visuelt",
+  color: "white",
   weight: "regular",
-  color: "blue",
+  className: "",
 };
 
 export default Typography;

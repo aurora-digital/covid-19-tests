@@ -1,95 +1,87 @@
 @import "../../styles/all.css";
 
+.root {
+  display: inline-block;
+}
+
 .h1 {
   font-size: $font-size-h1;
   line-height: $line-height-h1;
 
-  @include Breakpoint-mobileOnly {
-    font-size: $font-size-h1-mobile;
-    line-height: $line-height-h1-mobile;
-  }
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  lower-font-range: $min-responsive-font-screen;
+  upper-font-range: $max-responsive-font-screen;
 }
 
 .h2 {
   font-size: $font-size-h2;
   line-height: $line-height-h2;
 
-  @include Breakpoint-mobileOnly {
-    font-size: $font-size-h2-mobile;
-    line-height: $line-height-h2-mobile;
-  }
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  lower-font-range: $min-responsive-font-screen;
+  upper-font-range: $max-responsive-font-screen;
 }
 
 .h3 {
   font-size: $font-size-h3;
   line-height: $line-height-h3;
 
-  @include Breakpoint-mobileOnly {
-    font-size: $font-size-h3-mobile;
-    line-height: $line-height-h3-mobile;
-  }
+  lower-font-range: $min-responsive-font-screen;
+  upper-font-range: $max-responsive-font-screen;
 }
 
 .body {
   font-size: $font-size-body;
   line-height: $line-height-body;
 
-  @include Breakpoint-mobileOnly {
-    font-size: $font-size-body-mobile;
-    line-height: $line-height-body-mobile;
-  }
+  lower-font-range: $min-responsive-font-screen;
+  upper-font-range: $max-responsive-font-screen;
 }
 
-.smallBody {
-  font-size: $font-size-small-body;
-  line-height: $line-height-small-body;
+.small-body {
+  font-size: $font-size-body-small;
+  line-height: $line-height-body-small;
 
-  @include Breakpoint-mobileOnly {
-    font-size: $font-size-small-body-mobile;
-    line-height: $line-height-small-body-mobile;
-  }
+  lower-font-range: $min-responsive-font-screen;
+  upper-font-range: $max-responsive-font-screen;
+}
+
+.visuelt {
+  font-family: $font-family-visuelt;
 }
 
 .regular {
-  font-family: $font-family-regular;
+  font-weight: 400;
 }
 
 .medium {
-  font-family: $font-family-medium;
+  font-weight: 500;
 }
 
-.blue {
-  color: blue;
+.bold {
+  font-weight: 700;
 }
 
 .white {
   color: white;
 }
 
-.black {
-  color: black;
+.oxford-blue {
+  color: $oxford-blue;
 }
 
-.yellow {
-  color: yellow;
+.klein-blue {
+  color: $klein-blue;
 }
 
-.red {
-  color: red;
+.baby-blue {
+  color: $baby-blue;
 }
 
-.green {
-  color: green;
-}
-
-.purple {
-  color: purple;
-}
-
-.smallLine {
-  border-bottom: 1px solid currentColor;
-}
-
-.mediumLine {
-  border-bottom: 2px solid currentColor;
+.alice-blue {
+  color: $alice-blue;
 }

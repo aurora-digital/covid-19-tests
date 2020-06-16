@@ -1,0 +1,9 @@
+@import "../../styles/all.css";
+
+.root {
+  padding: $spacing-32 $spacing-20 $spacing-52 $spacing-20;
+}
+
+.content {
+  margin-top: $spacing-84;
+}

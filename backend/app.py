@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 
 sched = BackgroundScheduler()
-sched.add_job(update_labs, trigger='cron', hour='17', minute='10')
+sched.add_job(update_labs, trigger='cron', hour='17', minute='45')
 sched.start()
 
 

@@ -9,8 +9,6 @@ if not MONGODB_URI:
     MONGODB_URI = "mongodb://localhost:27017/covid-tests"
 
 client = MongoClient(MONGODB_URI)
-db = client['covid-tests']
-
 collection = db['labs']
 
 

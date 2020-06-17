@@ -6,3 +6,4 @@ source venv/bin/activate
 FLASK_APP=app.py
 systemctl restart mongodb.service
 flask run & mongod
+# git subtree push --prefix backend heroku master

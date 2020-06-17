@@ -29,3 +29,6 @@ def labs():
 def api_labs():
     labs = get_labs()
     return make_response(labs)
+
+if __name__ == "__main__":
+    app.run()

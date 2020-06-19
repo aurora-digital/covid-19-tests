@@ -58,28 +58,3 @@ const MapExp = () => {
 };
 
 export default MapExp;
-
-/* export async function getStaticProps() {
-  console.log("aki");
-
-  const mapboxApiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/chester.json?access_token=${process.env.MAPBOX_TOKEN}`;
-
-  try {
-    const res = await fetch(mapboxApiUrl);
-    const json = await res;
-
-    console.log(json);
-  } catch (error) {
-    console.log(error);
-  }
-
-  const res = await fetch(mapboxApiUrl, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  }).then((res) => {
-    console.log(res);
-    return res;
-  });
-
-  return res;
-} */

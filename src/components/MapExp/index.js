@@ -39,12 +39,12 @@ const MapExp = () => {
 
   return (
     <div>
-      <Geocoder
+      {/* <Geocoder
         {...mapAccess}
         viewport={viewport}
         hideOnSelect
         queryParams={queryParams}
-      />
+      /> */}
       <MapGL
         {...viewport}
         width="100vw"

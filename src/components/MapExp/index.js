@@ -25,35 +25,37 @@ const MapExp = () => {
   };
 
   return (
-    <MapGL
-      {...viewport}
-      width="100vw"
-      height="100vh"
-      mapStyle="mapbox://styles/mapbox/streets-v11"
-      onViewportChange={(view) => setViewport(view)}
-      mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
-      ref={map}
-    >
-      <Marker latitude={41.5472535} longitude={-8.4816328}>
-        <svg
-          height={SIZE}
-          viewBox="0 0 24 24"
-          style={{
-            cursor: "pointer",
-            fill: "#d00",
-            stroke: "none",
-            transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
-          }}
-        >
-          <path d={ICON} />
-        </svg>
-      </Marker>
-      <GeolocateControl
-        style={geolocateStyle}
-        positionOptions={{ enableHighAccuracy: true }}
-        trackUserLocation
-      />
-    </MapGL>
+    <div className="root">
+      <MapGL
+        {...viewport}
+        width="100vw"
+        height="100vh"
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        onViewportChange={(view) => setViewport(view)}
+        mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
+        ref={map}
+      >
+        <Marker latitude={41.5472535} longitude={-8.4816328}>
+          <svg
+            height={SIZE}
+            viewBox="0 0 24 24"
+            style={{
+              cursor: "pointer",
+              fill: "#d00",
+              stroke: "none",
+              transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+            }}
+          >
+            <path d={ICON} />
+          </svg>
+        </Marker>
+        <GeolocateControl
+          style={geolocateStyle}
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation
+        />
+      </MapGL>
+    </div>
   );
 };
 

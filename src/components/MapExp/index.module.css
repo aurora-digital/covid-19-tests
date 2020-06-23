@@ -1,8 +1,6 @@
 @import "../../styles/all.css";
 @import "../../../node_modules/leaflet/dist/leaflet.css";
 
-.map {
-  position: relative;
-
-  height: 600px;
+.root {
+  max-height: 80vh;
 }

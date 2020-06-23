@@ -1,20 +1,30 @@
 import React from "react";
-import Head from "next/head";
 import MapExp from "../components/MapExp";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 import styles from "./index.module.css";
 
 export default function Home() {
   return (
     <div className={styles.root}>
-      <Head>
-        <title>Covid-19 tests</title>
-      </Head>
-
+      <Header />
       <div className={styles.container}>
-        <MapExp />
+        <div>
+          <MapExp />
+        </div>
       </div>
-      <Footer></Footer>
+      <div className={styles.footer}>
+        <Footer />
+      </div>
+      <style jsx global>
+        {`
+          body {
+            margin: 0px;
+            padding: 0px;
+          }
+        `}
+      </style>
     </div>
   );
 }

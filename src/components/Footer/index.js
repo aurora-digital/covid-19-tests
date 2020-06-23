@@ -7,8 +7,10 @@ import styles from "./index.module.css";
 function Footer() {
   return (
     <div className={styles.root}>
-      <Typography color="baby-blue">Powered by</Typography>
-      <Logo />
+      <div className={styles.content}>
+        <Typography color="baby-blue">Powered by</Typography>
+        <Logo />
+      </div>
     </div>
   );
 }

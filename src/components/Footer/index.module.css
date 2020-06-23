@@ -2,14 +2,19 @@
 
 .root {
   display: flex;
-  justify-content: space-between;
-  padding: $spacing-20 0;
+  flex-direction: row;
 
-  @include Breakpoint-tabletAndBelow {
-    padding: $spacing-20;
+  height: 100%;
+
+  background-color: $klein-blue;
+
+  svg {
+    margin-left: $spacing-20;
   }
 }
 
-.arrows > * + * {
-  margin-left: $spacing-12;
+.content {
+  align-self: center;
+
+  margin: 0 auto;
 }

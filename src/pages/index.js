@@ -18,53 +18,33 @@ const labs = [
 ];
 
 export default function Home() {
-  //const [labs, setLabs] = useState(null);
+  const [locations, setLocations] = useState(null);
+
+  const getPointCordinated = async (address) => {
+    const result = await axios.get(
+      "https://maps.googleapis.com/maps/api/geocode/json",
+      {
+        params: {
+          key: process.env.GOOGLE_KEY,
+          address,
+        },
+      },
+    );
+    const { data } = result;
+
+    return data.results ? data.results[0].geometry.location : null;
+  };
 
   useEffect(() => {
-    async function fetchCoordinates(addressesList) {
-      const addressesCoordinates = map(addressesList, (address) => {
-        try {
-          const data = axios.get(
-            "https://maps.googleapis.com/maps/api/geocode/json",
-            {
-              params: {
-                key: process.env.GOOGLE_KEY,
-                address,
-              },
-            },
-          );
+    const fetchCoordinates = async (addressesList) => {
+      return Promise.all(
+        map(addressesList, (address) => getPointCordinated(address)),
+      );
+    };
 
-          console.log(address, data);
-
-          return data;
-        } catch (error) {
-          return console.error(error);
-        }
-      });
-
-      console.log(addressesCoordinates);
-    }
-
-    async function fetchLabs() {
-      const cors = "https://cors-anywhere.herokuapp.com/";
-      //  https://api.mapbox.com/geocoding/v5/mapbox.places/${labs[0]}.json?access_token=${process.env.MAPBOX_TOKEN}&country=portugal&language=pt,
-
-      try {
-        const config = {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        };
-
-        const data = axios(
-          `${cors}https://auroradigital-covid-labs.herokuapp.com/api/labs`,
-          config,
-        );
-
-        console.log(data);
-      } catch (error) {
-        return console.error(error);
-      }
-    }
-    fetchCoordinates(labs);
+    fetchCoordinates(labs).then((data) => {
+      setLocations(data);
+    });
   }, []);
 
   return (
@@ -74,7 +54,7 @@ export default function Home() {
       </Head>
 
       <div className={styles.container}>
-        <MapExp />
+        <MapExp locations={locations} />
       </div>
     </div>
   );

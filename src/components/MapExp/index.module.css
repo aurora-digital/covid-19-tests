@@ -1,6 +1,0 @@
-@import "../../styles/all.css";
-@import "../../../node_modules/leaflet/dist/leaflet.css";
-
-.root {
-  max-height: 80vh;
-}

@@ -6,7 +6,12 @@ import styles from "./index.module.css";
 function Header() {
   return (
     <div className={styles.header}>
-      <Typography variant="h1">Covid-19 tests</Typography>
+      <Typography variant="h2">Covid-19 tests</Typography>
+      <div className={styles.menu}>
+        <a href="#faqs">
+          <Typography variant="h3">FAQ&#39;s</Typography>
+        </a>
+      </div>
     </div>
   );
 }

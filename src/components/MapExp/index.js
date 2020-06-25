@@ -74,7 +74,11 @@ const MapExp = ({ locations }) => {
 };
 
 MapExp.propTypes = {
-  locations: PropTypes.shape({}).isRequired,
+  locations: PropTypes.shape({}),
+};
+
+MapExp.defaultProps = {
+  locations: null,
 };
 
 export default MapExp;

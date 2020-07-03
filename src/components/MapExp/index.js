@@ -27,8 +27,8 @@ const MapExp = () => {
   return (
     <MapGL
       {...viewport}
-      width="100vw"
-      height="100vh"
+      width="100%"
+      height="100%"
       mapStyle="mapbox://styles/mapbox/streets-v11"
       onViewportChange={(view) => setViewport(view)}
       mapboxApiAccessToken={process.env.MAPBOX_TOKEN}

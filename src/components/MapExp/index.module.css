@@ -1,18 +1,21 @@
 @import "../../styles/all.css";
-@import "../../../node_modules/leaflet/dist/leaflet.css";
-
-.map {
-  position: relative;
-
-  height: 600px;
-}
 
 .popup {
   display: flex;
   flex-direction: column;
+  padding: calc($spacing-8 * 0.5);
 
   .detail {
     flex-direction: row;
-    margin-top: $spacing-20;
+
+    max-width: $four-columns;
+
+    small:first-child {
+      margin-right: calc($spacing-8 * 0.5);
+    }
+  }
+
+  .detail:not(:first-child) {
+    margin-top: $spacing-8;
   }
 }

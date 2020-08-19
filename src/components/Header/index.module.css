@@ -6,8 +6,7 @@
   justify-content: center;
 
   width: 100%;
-
-  padding: $spacing-20 0;
+  height: 100%;
 
   background-color: $klein-blue;
 
@@ -18,8 +17,16 @@
   position: absolute;
   right: $spacing-32;
 
+  display: flex;
+
   button {
     background: none;
     border: none;
+
+    cursor: pointer;
+
+    outline: none;
+
+    text-transform: uppercase;
   }
 }

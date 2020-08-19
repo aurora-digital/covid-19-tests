@@ -1,0 +1,20 @@
+{
+  "name": "Laboratory",
+  "address": "Address",
+  "phone": "Phone",
+  "schedule": "Schedule",
+  "reservation": "Advance booking",
+  "required": "Required",
+  "optional": "Optional",
+  "nonexistent": "Nonexistent",
+  "coverage": "(ARS) Local Health Administration coverage",
+  "acesCoverage": "(ACES) Health centers coverage",
+  "drive": "Drive through",
+  "doesnthave": "No",
+  "car": "Only car",
+  "walkorcar": "By car or on foot",
+  "pick": "Recolha presencial",
+  "home": "Domicile",
+  "yes": "Yes",
+  "no": "No"
+}

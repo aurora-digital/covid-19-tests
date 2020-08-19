@@ -3,6 +3,9 @@ import MapGL, { Marker, GeolocateControl, Popup } from "react-map-gl";
 import PropTypes from "prop-types";
 import { map } from "lodash";
 import Typography from "../Typography";
+import { withTranslation } from "../../i18n";
+
+import styles from "./index.module.css";
 
 const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
   c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
@@ -10,11 +13,12 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
 
 const SIZE = 20;
 
-const MapExp = ({ locations }) => {
+/* eslint-disable id-length */
+const MapExp = ({ locations, t }) => {
   const [viewport, setViewport] = useState({
     latitude: 39.5887387,
     longitude: -8.4964864,
-    zoom: 6,
+    zoom: 5.7,
     bearing: 0,
     pitch: 0,
   });
@@ -33,6 +37,38 @@ const MapExp = ({ locations }) => {
     setPopupInfo(location);
   };
 
+  const getDrive = () => {
+    if (popupInfo.drive === "Não tem") {
+      return t("doesnthave");
+    }
+
+    if (popupInfo.drive === "Só em automóvel") {
+      return t("car");
+    }
+
+    if (popupInfo.drive === "Em viatura ou a pé") {
+      return t("walkorcar");
+    }
+
+    return popupInfo.drive;
+  };
+
+  const getReservation = () => {
+    if (popupInfo.reservation === "Obrigatória") {
+      return t("required");
+    }
+
+    if (popupInfo.reservation === "Inexistente") {
+      return t("nonexistent");
+    }
+
+    if (popupInfo.reservation === "Opcional") {
+      return t("optional");
+    }
+
+    return popupInfo.reservation;
+  };
+
   const renderPopup = () => {
     if (!popupInfo) {
       return null;
@@ -47,69 +83,77 @@ const MapExp = ({ locations }) => {
         closeOnClick={false}
         onClose={() => setPopupInfo(null)}
       >
-        <div className="popup">
-          <div className="detail">
-            <Typography weight="bold" color="klein-blue">
-              Nome do laboratório:
+        <div className={styles.popup}>
+          <div className={styles.detail}>
+            <Typography weight="bold" color="klein-blue" variant="small">
+              {popupInfo.name}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.name}</Typography>
           </div>
-          <div className="detail">
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              Morada:
+              {t("address")}
             </Typography>
             <Typography color="klein-blue">{popupInfo.address}</Typography>
           </div>
-          <div className="detail">
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              ARS de Abrangência:
+              {t("coverage")}
             </Typography>
             <Typography color="klein-blue">{popupInfo.ars}</Typography>
           </div>
-          <div className="detail">
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              ACES de Abrangência:
+              {t("acesCoverage")}
             </Typography>
             <Typography color="klein-blue">{popupInfo.aces}</Typography>
           </div>
-          <div className="detail">
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              Telefone:
+              {t("phone")}
             </Typography>
             <Typography color="klein-blue">{popupInfo.phone}</Typography>
           </div>
-          <div className="detail">
+          {popupInfo.email ? (
+            <div className={styles.detail}>
+              <Typography weight="bold" color="klein-blue">
+                Email:
+              </Typography>
+              <Typography color="klein-blue">{popupInfo.email}</Typography>
+            </div>
+          ) : null}
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              Email:
-            </Typography>
-            <Typography color="klein-blue">{popupInfo.email}</Typography>
-          </div>
-          <div className="detail">
-            <Typography weight="bold" color="klein-blue">
-              Horário:
+              {t("schedule")}
             </Typography>
             <Typography color="klein-blue">{popupInfo.schedule}</Typography>
           </div>
-          {popupInfo.presencial === "Sim" ? (
-            <div className="detail">
-              <Typography color="klein-blue">Recolha presencial </Typography>
-            </div>
-          ) : null}
-          {popupInfo.domicile === "Sim" ? (
-            <div className="detail">
-              <Typography color="klein-blue">Faz domicílios </Typography>
-            </div>
-          ) : null}
-          {popupInfo.reservation === "Obrigatória" ? (
-            <div className="detail">
-              <Typography color="klein-blue">Reserva obrigatória </Typography>
-            </div>
-          ) : null}
-          <div className="detail">
+          <div className={styles.detail}>
             <Typography weight="bold" color="klein-blue">
-              Drive through:
+              {t("pick")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.drive}</Typography>
+            <Typography color="klein-blue">
+              {popupInfo.presencial === "Sim" ? t("yes") : t("no")}
+            </Typography>
+          </div>
+          <div className={styles.detail}>
+            <Typography weight="bold" color="klein-blue">
+              {t("home")}
+            </Typography>
+            <Typography color="klein-blue">
+              {popupInfo.domicile === "Sim" ? t("yes") : t("no")}
+            </Typography>
+          </div>
+          <div className={styles.detail}>
+            <Typography weight="bold" color="klein-blue">
+              {t("reservation")}
+            </Typography>
+            <Typography color="klein-blue">{getReservation()}</Typography>
+          </div>
+          <div className={styles.detail}>
+            <Typography weight="bold" color="klein-blue">
+              {t("drive")}
+            </Typography>
+            <Typography color="klein-blue">{getDrive()}</Typography>
           </div>
         </div>
       </Popup>
@@ -137,8 +181,9 @@ const MapExp = ({ locations }) => {
             viewBox="0 0 24 24"
             style={{
               cursor: "pointer",
-              fill: "#d00",
-              stroke: "none",
+              fill: "#a0bdef",
+              stroke: "#002fa7",
+              strokeWidth: "0.5px",
               transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
             }}
             onClick={handleClickLab(location)}
@@ -173,6 +218,7 @@ const MapExp = ({ locations }) => {
 
 MapExp.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  t: PropTypes.func.isRequired,
 };
 
-export default MapExp;
+export default withTranslation("map")(MapExp);

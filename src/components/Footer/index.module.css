@@ -2,7 +2,9 @@
 
 .root {
   display: flex;
-  padding: $spacing-20 0;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
   background-color: $klein-blue;
 

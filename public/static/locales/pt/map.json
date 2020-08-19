@@ -1,0 +1,20 @@
+{
+  "name": "Laboratório",
+  "address": "Morada",
+  "phone": "Telefone",
+  "schedule": "Horário",
+  "reservation": "Reserva obrigatória",
+  "required": "Obrigatória",
+  "optional": "Opcional",
+  "nonexistent": "Inexistente",
+  "coverage": "ARS de abrangência",
+  "acesCoverage": "ACES de abrangência",
+  "drive": "Drive through",
+  "doesnthave": "Não",
+  "car": "Só em automóvel",
+  "walkorcar": "Em viatura ou a pé",
+  "pick": "Recolha presencial",
+  "home": "Domicílios",
+  "yes": "Sim",
+  "no": "Não"
+}

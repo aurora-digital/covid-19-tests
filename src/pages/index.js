@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Faqs from "../components/Faqs";
 import MapExp from "../components/MapExp";
 
 import styles from "./index.module.css";
 
-export default function Home() {
+function Home() {
   const [labs, setLabs] = useState([]);
 
   async function fetchLabs() {
@@ -24,13 +23,13 @@ export default function Home() {
 
   return (
     <div className={styles.root}>
-      <Header />
+      <div className={styles.header}>
+        <Header />
+      </div>
+
       <div className={styles.container}>
         <section id="map" className={styles.map}>
           <MapExp locations={labs} />
-        </section>
-        <section id="faqs">
-          <Faqs />
         </section>
       </div>
       <div className={styles.footer}>
@@ -47,3 +46,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;

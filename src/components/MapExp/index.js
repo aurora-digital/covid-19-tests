@@ -76,13 +76,14 @@ const MapExp = ({ locations, t }) => {
 
     return (
       <Popup
-        tipSize={5}
-        anchor="top"
+        tipSize={8}
         latitude={popupInfo.coords[0]}
         longitude={popupInfo.coords[1]}
         closeOnClick={false}
         onClose={() => setPopupInfo(null)}
         className={styles.popup}
+        captureScroll
+        captureDrag
       >
         <div>
           <div className={styles.title}>
@@ -205,6 +206,7 @@ const MapExp = ({ locations, t }) => {
       onViewportChange={(view) => setViewport(view)}
       mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
       ref={mapgl}
+      dragPan={false}
     >
       {renderMarkers()}
       {renderPopup()}

@@ -1,21 +1,54 @@
 @import "../../styles/all.css";
 
 .popup {
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
-  padding: calc($spacing-8 * 0.5);
 
-  .detail {
+  @include Breakpoint-mobileOnly {
+    height: 100%;
+
+    transform: translate(0, 0) !important;
+  }
+
+  .detail,
+  .title {
+    display: flex;
     flex-direction: row;
 
     max-width: $four-columns;
+
+    margin-top: $spacing-8;
+
+    @include Breakpoint-mobileOnly {
+      flex-direction: column;
+    }
 
     small:first-child {
       margin-right: calc($spacing-8 * 0.5);
     }
   }
 
-  .detail:not(:first-child) {
-    margin-top: $spacing-8;
+  .detail:first-child {
+    margin-bottom: $spacing-20;
+
+    @include Breakpoint-mobileOnly {
+      margin-bottom: $spacing-12;
+    }
+  }
+}
+
+.popup :global(.mapboxgl-popup-content) {
+  @include Breakpoint-mobileOnly {
+    top: 1vh;
+    left: 1vw;
+
+    width: 92vw;
+    height: 70vh;
+
+    overflow-y: scroll;
+
+    cursor: default;
   }
 }

@@ -82,78 +82,79 @@ const MapExp = ({ locations, t }) => {
         longitude={popupInfo.coords[1]}
         closeOnClick={false}
         onClose={() => setPopupInfo(null)}
+        className={styles.popup}
       >
-        <div className={styles.popup}>
-          <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue" variant="small">
+        <div>
+          <div className={styles.title}>
+            <Typography color="oxford-blue" variant="body">
               {popupInfo.name}
             </Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("address")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.address}</Typography>
+            <Typography color="oxford-blue">{popupInfo.address}</Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("coverage")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.ars}</Typography>
+            <Typography color="oxford-blue">{popupInfo.ars}</Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("acesCoverage")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.aces}</Typography>
+            <Typography color="oxford-blue">{popupInfo.aces}</Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("phone")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.phone}</Typography>
+            <Typography color="oxford-blue">{popupInfo.phone}</Typography>
           </div>
           {popupInfo.email ? (
             <div className={styles.detail}>
-              <Typography weight="bold" color="klein-blue">
+              <Typography weight="bold" color="oxford-blue">
                 Email:
               </Typography>
-              <Typography color="klein-blue">{popupInfo.email}</Typography>
+              <Typography color="oxford-blue">{popupInfo.email}</Typography>
             </div>
           ) : null}
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("schedule")}
             </Typography>
-            <Typography color="klein-blue">{popupInfo.schedule}</Typography>
+            <Typography color="oxford-blue">{popupInfo.schedule}</Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("pick")}
             </Typography>
-            <Typography color="klein-blue">
+            <Typography color="oxford-blue">
               {popupInfo.presencial === "Sim" ? t("yes") : t("no")}
             </Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("home")}
             </Typography>
-            <Typography color="klein-blue">
+            <Typography color="oxford-blue">
               {popupInfo.domicile === "Sim" ? t("yes") : t("no")}
             </Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("reservation")}
             </Typography>
-            <Typography color="klein-blue">{getReservation()}</Typography>
+            <Typography color="oxford-blue">{getReservation()}</Typography>
           </div>
           <div className={styles.detail}>
-            <Typography weight="bold" color="klein-blue">
+            <Typography weight="bold" color="oxford-blue">
               {t("drive")}
             </Typography>
-            <Typography color="klein-blue">{getDrive()}</Typography>
+            <Typography color="oxford-blue">{getDrive()}</Typography>
           </div>
         </div>
       </Popup>
@@ -200,7 +201,7 @@ const MapExp = ({ locations, t }) => {
       {...viewport}
       width="100%"
       height="100%"
-      mapStyle="mapbox://styles/mapbox/streets-v11"
+      mapStyle="mapbox://styles/tania-covid19/ckbqldulc29sc1it9mqg45u5k"
       onViewportChange={(view) => setViewport(view)}
       mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
       ref={mapgl}

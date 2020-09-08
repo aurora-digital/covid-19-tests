@@ -1,21 +1,26 @@
 @import "../../styles/all.css";
 
 .popup {
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
   padding: calc($spacing-8 * 0.5);
 
-  .detail {
+  .detail,
+  .title {
     flex-direction: row;
 
     max-width: $four-columns;
+
+    margin-top: $spacing-8;
 
     small:first-child {
       margin-right: calc($spacing-8 * 0.5);
     }
   }
 
-  .detail:not(:first-child) {
-    margin-top: $spacing-8;
+  .detail:first-child {
+    margin-bottom: $spacing-20;
   }
 }

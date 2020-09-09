@@ -22,14 +22,6 @@ sched.add_job(
 )
 sched.start()
 
-# def cron_update():
-#     res = update_labs()
-#     if res === ?:
-#         scheduler.add_job(myfunc, 'interval', minutes=2)
-#     else: scheduler.remove_job('my_job_id')
-# scheduler.reschedule_job('my_job_id', trigger='cron', minute='*/5')
-
-
 @app.route("/")
 def labs():
     return jsonify([])

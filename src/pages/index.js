@@ -37,7 +37,7 @@ function Home({ t }) {
 
       <div className={styles.container}>
         <section id="map" className={styles.map}>
-          <MapExp locations={labs} />
+          <MapExp locations={labs.slice(1)} />
         </section>
       </div>
       <div className={styles.footer}>

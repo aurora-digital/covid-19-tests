@@ -4,8 +4,9 @@ import pandas as pd
 from datetime import datetime
 import urllib.request as request
 from geopy.geocoders import GoogleV3
+from googletrans import Translator
 
-GOOGLE_KEY = os.environ.get('GOOGLE_KEY')
+GOOGLE_KEY = os.environ.get("GOOGLE_KEY")
 if not GOOGLE_KEY:
     print("GOOGLE_KEY NOT FOUND")
 
@@ -37,6 +38,7 @@ def update_file():
 
 def get_data():
     geolocator = GoogleV3(api_key=GOOGLE_KEY)
+    translator = Translator()
     pdf = pdfplumber.open("data/labs.pdf")
 
     dfs = []
@@ -54,25 +56,38 @@ def get_data():
             "Posto de Colheita Laboratorial Covid-19", ""
         )
 
+        schedule_en = []
+        for sch in df["schedule"]:
+            translation = translator.translate(sch, src="pt", dest="en")
+            schedule_en.append(translation.text)
+
+        df["schedule_en"] = schedule_en
+
         coordinates = []
         for address in df["address"]:
             try:
-                location = geolocator.geocode(address, timeout=10)
+                location = geolocator.geocode(
+                    address, components={"country": "PT"}, timeout=10
+                )
                 coordinates.append((location.latitude, location.longitude))
             except Exception as e:
-                print('Error, skipping address...', e)
+                print("Error, skipping address...", e)
                 coordinates.append(())
 
         df["coords"] = coordinates
         # lat, lng = map(list, zip(*coordinates))
 
-
         dfs.append(df)
 
-    labs = pd.concat(dfs, ignore_index=True)
+    labs_df = pd.concat(dfs, ignore_index=True)
+    labs = labs_df.to_dict("records")
 
-    return labs.to_dict("records")
+    today = datetime.today()
+    updated = today.strftime("%m/%d/%Y")
 
+    labs.insert(0,{'updated': updated })
+
+    return labs
 
 def visual_debug(img):
     img.reset().debug_tablefinder(table_settings)

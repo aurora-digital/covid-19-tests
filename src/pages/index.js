@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
+import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MapExp from "../components/MapExp";
+import { withTranslation } from "../i18n";
 
 import styles from "./index.module.css";
 
-function Home() {
+/* eslint-disable id-length */
+function Home({ t }) {
   const [labs, setLabs] = useState([]);
 
   async function fetchLabs() {
@@ -23,6 +27,10 @@ function Home() {
 
   return (
     <div className={styles.root}>
+      <Head>
+        <title>{t("title")}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className={styles.header}>
         <Header />
       </div>
@@ -46,4 +54,9 @@ function Home() {
     </div>
   );
 }
-export default Home;
+
+Home.propTypes = {
+  t: PropTypes.func.isRequired,
+};
+
+export default withTranslation("header")(Home);

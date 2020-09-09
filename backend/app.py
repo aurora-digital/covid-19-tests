@@ -18,11 +18,9 @@ sched = BackgroundScheduler(
 )
 
 sched.add_job(
-    update_labs, trigger="cron", hour="12", minute="45", executor="threadpool"
+    update_labs, trigger="cron", hour="15", minute="35", executor="threadpool"
 )
 sched.start()
-
-update_labs()
 
 @app.route("/")
 def labs():

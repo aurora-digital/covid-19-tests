@@ -1,5 +1,10 @@
 @import "../../styles/all.css";
 
+.update {
+  margin-top: $spacing-8;
+  margin-left: $spacing-52;
+}
+
 .popup {
   z-index: 1;
 

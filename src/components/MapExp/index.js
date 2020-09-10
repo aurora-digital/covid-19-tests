@@ -3,7 +3,7 @@ import MapGL, { Marker, GeolocateControl, Popup } from "react-map-gl";
 import PropTypes from "prop-types";
 import { map } from "lodash";
 import Typography from "../Typography";
-import { withTranslation } from "../../i18n";
+import { withTranslation, i18n } from "../../i18n";
 import updateDimensions from "../../hooks/useWindowDimensions";
 
 import styles from "./index.module.css";
@@ -15,7 +15,7 @@ const SIZE = 20;
 const breakpointMobile = 800;
 
 /* eslint-disable id-length */
-const MapExp = ({ locations, t }) => {
+const MapExp = ({ locations, t, update }) => {
   const dimensions = updateDimensions();
   const [viewport, setViewport] = useState({
     latitude: 39.5887387,
@@ -127,7 +127,11 @@ const MapExp = ({ locations, t }) => {
             <Typography weight="bold" color="oxford-blue">
               {t("schedule")}
             </Typography>
-            <Typography color="oxford-blue">{popupInfo.schedule}</Typography>
+            <Typography color="oxford-blue">
+              {i18n.language === "pt"
+                ? popupInfo.schedule
+                : popupInfo.schedule_en}
+            </Typography>
           </div>
           <div className={styles.detail}>
             <Typography weight="bold" color="oxford-blue">
@@ -197,6 +201,20 @@ const MapExp = ({ locations, t }) => {
     });
   };
 
+  const renderUpdate = () => {
+    if (!update) {
+      return null;
+    }
+
+    return (
+      <div className={styles.update}>
+        <Typography color="oxford-blue" variant="small-body">
+          {`${t("update")} ${update} `}
+        </Typography>
+      </div>
+    );
+  };
+
   const renderMapElements = () => {
     return (
       <>
@@ -207,6 +225,7 @@ const MapExp = ({ locations, t }) => {
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation
         />
+        {renderUpdate()}
       </>
     );
   };
@@ -247,6 +266,7 @@ const MapExp = ({ locations, t }) => {
 MapExp.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   t: PropTypes.func.isRequired,
+  update: PropTypes.string.isRequired,
 };
 
 export default withTranslation("map")(MapExp);

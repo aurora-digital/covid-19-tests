@@ -215,6 +215,13 @@ const MapExp = ({ locations, t, update }) => {
     );
   };
 
+  const onViewportChange = (view) => {
+    setViewport({
+      ...view,
+      zoom: 12,
+    });
+  };
+
   const renderMapElements = () => {
     return (
       <>
@@ -224,6 +231,7 @@ const MapExp = ({ locations, t, update }) => {
           style={geolocateStyle}
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation
+          onViewportChange={onViewportChange}
         />
         {renderUpdate()}
       </>
@@ -266,7 +274,11 @@ const MapExp = ({ locations, t, update }) => {
 MapExp.propTypes = {
   locations: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   t: PropTypes.func.isRequired,
-  update: PropTypes.string.isRequired,
+  update: PropTypes.string,
+};
+
+MapExp.defaultProps = {
+  update: null,
 };
 
 export default withTranslation("map")(MapExp);

@@ -230,6 +230,19 @@ const MapExp = ({ locations, t, update }) => {
     );
   };
 
+  const onMapViewportChange = (view) => {
+    console.log(view);
+
+    if (view.latitude >= 40) {
+      setViewport({
+        ...view,
+        latitude: 40,
+      });
+    } else {
+      setViewport(view);
+    }
+  };
+
   if (dimensions.width > breakpointMobile) {
     return (
       <MapGL
@@ -237,9 +250,9 @@ const MapExp = ({ locations, t, update }) => {
         width="100%"
         height="100%"
         mapStyle="mapbox://styles/tania-covid19/ckbqldulc29sc1it9mqg45u5k"
-        onViewportChange={(view) => setViewport(view)}
         mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
         ref={mapgl}
+        onViewportChange={onMapViewportChange}
       >
         {renderMapElements()}
       </MapGL>
@@ -252,8 +265,8 @@ const MapExp = ({ locations, t, update }) => {
       width="100%"
       height="100%"
       mapStyle="mapbox://styles/tania-covid19/ckbqldulc29sc1it9mqg45u5k"
-      onViewportChange={(view) => setViewport(view)}
       mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
+      onViewportChange={onMapViewportChange}
       ref={mapgl}
       dragPan={false}
       touchAction="pan-y"

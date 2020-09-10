@@ -20,6 +20,8 @@
   display: flex;
 
   button {
+    margin-left: $spacing-20;
+
     background: none;
     border: none;
 

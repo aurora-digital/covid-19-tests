@@ -6,4 +6,14 @@
 
 .content {
   margin-top: $spacing-84;
+
+  .faq {
+    max-width: $six-columns;
+    .question {
+    }
+
+    .answer {
+      margin-top: $spacing-12;
+    }
+  }
 }

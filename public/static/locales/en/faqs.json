@@ -1,0 +1,37 @@
+{
+  "whoTest": "Who should get test for COVID-19?",
+  "whoTestAnswer": "People suspected of COVID-19 should be undergo a laboratory test, follow the guidance of Direção-Geral da Saúde (). The decision to perform the test is only valid after the clinical evaluation of the health professionals who are qualified to do it.",
+  "whoPatients": "Who are the patients suspected of COVID-19?",
+  "whoPatientsAnswer1": "All persons who develop an acute respiratory condition of:",
+  "whoPatientsAnswerItens": [
+    "cough: persistent or worsening of the usual cough",
+    "fever: temperature ≥ 38.0ºC",
+    "breathing difficulty"
+  ],
+  "whoPatientsAnswer2": "are considered suspected of having COVID-19.",
+  "where": "Onde é feito o teste da COVID-19?",
+  "whereAnswer": "O teste pode ser realizado nos seguintes locais:",
+  "whereAnswerItens": [
+    "laboratório de referência nacional – Instituto Nacional de Saúde Doutor Ricardo Jorge (INSA)",
+    "laboratórios hospitalares capacitados para o efeito",
+    "rede complementar de laboratórios privados",
+    "outros postos de colheita (como o Drive Thru)"
+  ],
+  "which": "Quais são os laboratórios onde posso fazer o teste?",
+  "whichAnswer": "Para além dos hospitais que fazem testes às pessoas com indicação para avaliação clínica hospitalar, os postos de colheita disponíveis na comunidade para a realização de testes da COVID-19 podem ser consultados na lista de laboratórios. Esta lista pode sofrer atualizações frequentes.",
+  "how": "Para o diagnóstico da COVID-19 está indicada a colheita de:",
+  "howAnswer": "amostras do nariz e garganta (trato respiratório superior): é recolhida uma amostra de produto (exsudado) nasal (nasofaringe) ou da parte posterior da garganta (orofaringe), ou ambas, usando uma “espécie de cotonete” (zaragatoa)",
+  "why": "Por que é importante fazer o teste?",
+  "whyAnswer": "O teste permite que as pessoas possam ter a confirmação se estão, ou não, infetadas. Isto pode ajudá-las a receber os cuidados que necessitam, mas também a tomar as medidas para não infetarem outras pessoas, ou seja colocarem-se em isolamento.",
+  "ifCough": "Se tiver tosse ou febre o que devo fazer?",
+  "ifCoughAnswer": "Caso tenha febre ou tosse deve contactar o SNS 24 – 808 24 24 24 e escolher a opção 1. Pode também contactar as linhas telefónicas que foram criadas para este efeito pelas Administrações Regionais de Saúde (ARS) e pelos centros de saúde (unidades de saúde familiares e/ou unidades de cuidados de saúde personalizados). Se tiver qualquer outro sintoma ligue também SNS 24 – 808 24 24 24 ou 112 se for uma emergência.",
+  "receivedIndication": "Recebi indicação para fazer o teste. O que tenho de fazer?",
+  "receivedIndicationAnswer1": "O doente ou seu representante, após receber a requisição do teste da COVID-19 deve:",
+  "receivedIndicationAnswerItens": [
+    "contactar telefonicamente o laboratório onde pretende realizar o teste da COVID-19",
+    "agendar telefonicamente a realização do teste"
+  ],
+  "receivedIndicationAnswer2": "A colheita das amostras deve ser realizada no domicílio ou em pontos de colheita destinados ao efeito conforme a lista de laboratórios. A realização dos testes laboratoriais, deverá ser realizada no prazo máximo de 48 horas, após contacto pelo doente ou seu representante.",
+  "safe": "Os testes são seguros e fiáveis?",
+  "safeAnswer": "Sim. Os testes utilizados em Portugal são os recomendados pelas autoridades de saúde internacionais, quer pelo Centro Europeu de Controlo de Doenças (ECDC), quer pela Organização Mundial de Saúde (OMS)."
+}

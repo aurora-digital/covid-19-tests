@@ -6,14 +6,26 @@
 
 .content {
   margin-top: $spacing-84;
+  margin-bottom: $spacing-84;
 
   .faq {
-    max-width: $six-columns;
+    max-width: $five-columns;
+
     .question {
     }
 
     .answer {
       margin-top: $spacing-12;
+    }
+
+    .item {
+      margin-left: $spacing-8;
+
+      p {
+        display: contents;
+
+        margin: 0;
+      }
     }
   }
 }

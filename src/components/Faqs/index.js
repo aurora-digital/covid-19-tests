@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Typography from "../Typography";
 import { map } from "lodash";
+import Typography from "../Typography";
 import { withTranslation } from "../../i18n";
 
 import styles from "./index.module.css";
@@ -9,13 +9,13 @@ import styles from "./index.module.css";
 /* eslint-disable id-length */
 const Faqs = ({ t }) => {
   const renderItens = (itens) => {
-    console.log(itens);
-
     return map(itens, (item) => {
       return (
-        <Typography variant="body" color="klein-blue">
-          {item}
-        </Typography>
+        <li className={styles.item}>
+          <Typography variant="body" color="klein-blue">
+            {item}
+          </Typography>
+        </li>
       );
     });
   };
@@ -25,6 +25,11 @@ const Faqs = ({ t }) => {
       <Typography weight="bold" variant="h2" color="klein-blue">
         FAQ&#39;s
       </Typography>
+      <div>
+        <Typography variant="body" color="klein-blue">
+          {t("source")}
+        </Typography>
+      </div>
       <div className={styles.content}>
         <div className={styles.faq}>
           <div className={styles.question}>
@@ -52,6 +57,82 @@ const Faqs = ({ t }) => {
             <Typography variant="body" color="klein-blue">
               {t("whoPatientsAnswer2")}
             </Typography>
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("where")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("whereAnswer")}
+            </Typography>
+            {renderItens(t("whereAnswerItens", { returnObjects: true }))}
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("which")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("whichAnswer")}
+            </Typography>
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("how")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("howAnswer")}
+            </Typography>
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("why")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("whyAnswer")}
+            </Typography>
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("ifCough")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("ifCoughAnswer")}
+            </Typography>
+          </div>
+        </div>
+        <div className={styles.faq}>
+          <div className={styles.question}>
+            <Typography weight="bold" variant="h3" color="klein-blue">
+              {t("receivedIndication")}
+            </Typography>
+          </div>
+          <div className={styles.answer}>
+            <Typography variant="body" color="klein-blue">
+              {t("receivedIndicationAnswer1")}
+            </Typography>
+            {renderItens(
+              t("receivedIndicationAnswerItens", { returnObjects: true }),
+            )}
           </div>
         </div>
       </div>

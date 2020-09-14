@@ -15,6 +15,9 @@ function Header({ t }) {
     <div className={styles.header}>
       <Typography variant="h2">{t("pageTitle")}</Typography>
       <div className={styles.menu}>
+        <a href="#faqs">
+          <Typography variant="h3">FAQ&#39;s</Typography>
+        </a>
         <button onClick={changeLanguage}>
           <Typography variant="h3">
             {i18n.language === "pt" ? "en" : "pt"}

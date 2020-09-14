@@ -5,6 +5,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MapExp from "../components/MapExp";
+import Faqs from "../components/Faqs";
 import { withTranslation } from "../i18n";
 
 import styles from "./index.module.css";
@@ -41,6 +42,9 @@ function Home({ t }) {
             update={labs[0] ? labs[0].updated : null}
             locations={labs.slice(1)}
           />
+        </section>
+        <section id="faqs" className={styles.faqs}>
+          <Faqs />
         </section>
       </div>
       <div className={styles.footer}>

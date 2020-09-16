@@ -28,8 +28,16 @@ function Home({ t }) {
   return (
     <div className={styles.root}>
       <Head>
-        <title>{t("title")}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta charSet="utf-8" />
+        <meta name="description" content={t("description")} />
+        <meta property="og:title" content={t("title")} key="ogtitle" />
+        <meta
+          property="og:description"
+          content={t("description")}
+          key="ogdesc"
+        />
+        <title>{t("title")}</title>
       </Head>
       <div className={styles.header}>
         <Header />

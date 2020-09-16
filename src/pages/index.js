@@ -37,6 +37,30 @@ function Home({ t }) {
           content={t("description")}
           key="ogdesc"
         />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta
+          name="twitter:creator"
+          content="@AuroraDigitalH1"
+          key="twhandle"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:url"
+          content="https://covid19.auroradigital.co"
+          key="ogurl"
+        />
+        <meta property="og:image" content="/preview.png" key="ogimage" />
+        <meta property="og:site_name" content={t("title")} key="ogsitename" />
+        <meta property="og:title" content={t("title")} key="ogtitle" />
+        <meta
+          property="og:description"
+          content={t("description")}
+          key="ogdesc"
+        />
+
         <title>{t("title")}</title>
       </Head>
       <div className={styles.header}>

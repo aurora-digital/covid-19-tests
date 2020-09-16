@@ -39,9 +39,15 @@ function Home({ t }) {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" key="twcard" />
+        <meta
+          name="twitter:card"
+          property="twitter:card"
+          content="summary"
+          key="twcard"
+        />
         <meta
           name="twitter:creator"
+          property="twitter:creator"
           content="@AuroraDigitalH1"
           key="twhandle"
         />
